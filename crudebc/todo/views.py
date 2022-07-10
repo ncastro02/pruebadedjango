@@ -11,13 +11,13 @@ def home(request):
 
 def agregar(request):
     if request.method == "POST":
-        form= TareaForm(request.POST)
+        form = TareaForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('home')
     else:
-        form=TareaForm()
-    context={'form':form}
+        form = TareaForm()
+    context= {'form': form}
     return render(request, 'todo/agregar.html', context)
 
 def eliminar(request, tarea_id):
@@ -28,13 +28,11 @@ def eliminar(request, tarea_id):
 def editar(request, tarea_id):
     tarea = Tarea.objects.get(id=tarea_id)
     if request.method == "POST":
-        form = TareaForm(request.POST,intance=tarea)
+        form = TareaForm(request.POST,instance=tarea)
         if form.is_valid():
             form.save()
             return redirect("home")
     else:
         form= TareaForm(instance=tarea)
     context={"form": form}
-    return render(request, "todo/editar.html", context)
-
-    
+    return render(request, "todo/editar.html", context) 

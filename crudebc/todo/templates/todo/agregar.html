@@ -1,9 +1,35 @@
 {% extends 'todo/layout.html' %}
 
 {% block content %}
-<form method="post">
-    {% csrf_token %}
-    {{ form }}
-    <button>Agregar datos</button>
-</form>
+<nav class="navbar navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#" style="align-content: center;">Agregar tarea al Portafolio</a>
+  </div>
+</nav>
+<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item" style="margin-left: 3%;"><a href="#">Inicio</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Agregar</li>
+  </ol>
+</nav>
+<div style="margin:5%;">
+  <form method="post">
+      {% csrf_token %}
+      {{ form }}
+      <button>Agregar datos</button>
+  </form>
+</div>
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="https://blogs.unitec.mx/content/dam/blogs/imagenes/corp_samara/para-que-sirve-la-programacion-1-compressor.jpg" class="d-block w-100" alt="Bootstrap" style="height: 80vh;background-size: cover;">
+      </div>
+      <div class="carousel-item">
+        <img src="https://grupofedora.com/wp-content/uploads/2019/01/Universidad-EBC-en-leon-guanajuato.jpg" class="d-block w-100" alt="Django" style="height: 80vh;background-size: cover;">
+      </div>
+      <div class="carousel-item">
+        <img src="https://www.liderempresarial.com/wp-content/uploads/2020/07/WhatsApp-Image-2020-07-02-at-9.56.18-AM.jpeg" class="d-block w-100" alt="GitHub" style="height: 80vh;background-size: cover;">
+      </div>
+    </div>
+  </div>
 {% endblock %}
