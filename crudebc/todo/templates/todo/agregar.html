@@ -1,44 +1,43 @@
 {% extends 'todo/layout.html' %}
 
 {% block content %}
-<div class="bg-image p-5 text-center shadow-1-strong rounded mb-5 text-black" 
+<nav class="navbar navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#" style="align-content: center;">Portafolio de Evidencias</a>
+  </div>
+</nav>
+<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item" style="margin-left: 3%;"><a href="#">Inicio</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Agregar</li>
+  </ol>
+</nav>
+<h5 style="margin-left: 5%;font-size: 20px;margin-top: 5%;">Alumno: Natalia Castro Franco</h5>
+<div style="margin:5%;">
+  <form method="post">
+      {% csrf_token %}
+      {{ form }}
+      <button>Agregar datos</button>
+  </form>
+  </div> 
+  <div class="bg-image p-5 text-center shadow-1-strong rounded mb-5 text-black" 
     style="
         background-image: url('https://img.freepik.com/vector-premium/paisaje-montana-blanco-negro-bosque-pinos_34926-335.jpg?w=2000'); 
         height: 100vh;
-        background-size: cover;" >
-    <nav class="navbar navbar-light bg-light">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#" style="align-content: center;">Portafolio de Evidencias</a>
-      </div>
-    </nav>
-    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item" style="margin-left: 3%;"><a href="#">Inicio</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Agregar</li>
-      </ol>
-    </nav>
-    <h5 style="margin-left: 5%;font-size: 20px;margin-top: 5%;">Alumno: Natalia Castro Franco</h5>
-    <div style="margin:5%;">
-      <form method="post">
-          {% csrf_token %}
-          {{ form }}
-          <button>Agregar datos</button>
-      </form>
-    </div>  
-      <div class="row" style="margin-left:2%;margin-right:2%;margin-bottom:4%;">
-       {% for tarea in tareas %} 
-          <div class="col-sm-6" style="margin-top:4%;">
-              <div class="card">
-                  <div class="card-body" style="background-color:grey;">
-                  <h5 class="card-title">Tarea</h5>
-                  <p class="card-text">{{ tarea }}</p>
-                      <div style="display:flex;justify-content:space-between;margin-left:10%;margin-right:10%;">
-                          <button class="btn btn-dark" style="width: 120px;height: 55px;"><a href="{% url 'editar' tarea.id %}" class="btn btn-dark">Editar</a></button>
-                          <button class="btn btn-dark" style="width: 120px;height: 55px;"><a href="{% url 'eliminar' tarea.id %}" class="btn btn-dark">Eliminar</a></button>
-                  </div>
-              </div>
-          </div>
-       {% endfor %}
-     </div>
+        background-size: cover;" > 
+    <div class="row" style="margin-left:2%;margin-right:2%;margin-bottom:4%;">
+     {% for tarea in tareas %} 
+        <div class="col-sm-6" style="margin-top:4%;">
+            <div class="card">
+                <div class="card-body" style="background-color:grey;">
+                <h5 class="card-title">Tarea</h5>
+                <p class="card-text">{{ tarea }}</p>
+                    <div style="display:flex;justify-content:space-between;margin-left:10%;margin-right:10%;">
+                        <button class="btn btn-dark" style="width: 120px;height: 55px;"><a href="{% url 'editar' tarea.id %}" class="btn btn-dark">Editar</a></button>
+                        <button class="btn btn-dark" style="width: 120px;height: 55px;"><a href="{% url 'eliminar' tarea.id %}" class="btn btn-dark">Eliminar</a></button>
+                </div>
+            </div>
+        </div>
+      {% endfor %}
   </div>
 {% endblock %}
