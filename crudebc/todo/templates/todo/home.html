@@ -17,7 +17,7 @@
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
   </head>
-  <body id="page-top">
+ <body id="page-top">
     
     <!-- Masthead-->
   <div class="bg-image p-5 text-center shadow-1-strong rounded mb-5 text-black" 
@@ -175,5 +175,21 @@
     <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
     <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
     <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-  </body>  
+
+    <div class="row" style="margin-left:2%;margin-right:2%;margin-bottom:4%;">
+        {% for tarea in tareas %} 
+           <div class="col-sm-6" style="margin-top:4%;">
+               <div class="card">
+                   <div class="card-body" style="background-color:grey;">
+                   <h5 class="card-title">Tarea</h5>
+                   <p class="card-text">{{ tarea }}</p>
+                       <div style="display:flex;justify-content:space-between;margin-left:10%;margin-right:10%;">
+                           <button class="btn btn-dark" style="width: 120px;height: 55px;"><a href="{% url 'editar' tarea.id %}" class="btn btn-dark">Editar</a></button>
+                           <button class="btn btn-dark" style="width: 120px;height: 55px;"><a href="{% url 'eliminar' tarea.id %}" class="btn btn-dark">Eliminar</a></button>
+                   </div>
+               </div>
+           </div>
+        {% endfor %}
+    </div>
+ </body>  
 {% endblock %}
