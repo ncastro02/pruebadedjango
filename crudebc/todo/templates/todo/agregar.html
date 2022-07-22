@@ -1,24 +1,30 @@
 {% extends 'todo/layout.html' %}
 
 {% block content %}
-<nav class="navbar navbar-light bg-light">
+ <nav class="navbar navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="#" style="align-content: center;">Portafolio de Evidencias</a>
   </div>
-</nav>
-<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item" style="margin-left: 3%;"><a href="#">Inicio</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Agregar</li>
-  </ol>
-</nav>
-<h5 style="margin-left: 5%;font-size: 20px;margin-top: 5%;">Alumno: Natalia Castro Franco</h5>
-<div style="margin:5%;">
-  <form method="post">
-      {% csrf_token %}
-      {{ form }}
-      <button>Agregar datos</button>
-  </form>
+ </nav>
+ <div class="bg-image p-5 text-center shadow-1-strong rounded mb-5 text-black" 
+    style="
+        background-image: url('https://images.unsplash.com/photo-1611335379290-9c68a8ee6c99?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Zm90b2dyYWYlQzMlQURhJTIwZGUlMjBwYWlzYWplJTIwZW4lMjBibGFuY28lMjB5JTIwbmVncm98ZW58MHx8MHx8&w=1000&q=80'); 
+        height: 100vh;
+        background-size: cover;" >
+  <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item" style="margin-left: 3%;"><a href="#">Inicio</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Agregar</li>
+    </ol>
+  </nav>
+  <h5 style="margin-left: 5%;font-size: 20px;margin-top: 5%;">Alumno: Natalia Castro Franco</h5>
+  <div style="margin:5%;">
+    <form method="post">
+        {% csrf_token %}
+        {{ form }}
+        <button>Agregar datos</button>
+    </form>
   </div> 
+ </div>
 
 {% endblock %}
