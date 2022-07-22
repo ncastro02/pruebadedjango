@@ -3,7 +3,7 @@
 {% block content %}
 <nav class="navbar navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#" style="align-content: center;">Agregar tarea al Portafolio</a>
+    <a class="navbar-brand" href="#" style="align-content: center;">Portafolio de Evidencias</a>
   </div>
 </nav>
 <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
@@ -12,21 +12,16 @@
     <li class="breadcrumb-item active" aria-current="page">Agregar</li>
   </ol>
 </nav>
+<h5 style="margin-left: 5%;font-size: 20px;margin-top: 5%;">Alumno: Natalia Castro Franco</h5>
 <div style="margin:5%;">
   <form method="post">
       {% csrf_token %}
       {{ form }}
       <button>Agregar datos</button>
   </form>
-</div>
-<nav class="navbar navbar-dark bg-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#" style="align-content: center;">Portafolio de Evidencias</a>
-  </div>
-</nav>   
-<h5 style="margin-left: 5%;font-size: 20px;margin-top: 5%;">Alumno: Natalia Castro Franco</h5>
+</div>  
   <div class="row" style="margin-left:2%;margin-right:2%;margin-bottom:4%;">
-    {% for tarea in tareas %} 
+   {% for tarea in tareas %} 
       <div class="col-sm-6" style="margin-top:4%;">
           <div class="card">
               <div class="card-body" style="background-color:grey;">
